@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>  
+<script>
+	function onDataReceived(data, status, xhr) {
+		console.log(data);
+		console.log(status);
+		console.log(xhr);
+
+		$('#name').text(data.name);
+		$('#city').text(data.city);
+		$('#weather').text(data.weather.weather);
+		$('#temp').text(data.weather.temp);
+	};
+
+	function onError(xhr, status, error) {
+		console.log(xhr);
+		console.log(status);
+		console.log(error);
+
+		var msg ;
+		if(error == "Internal Server Error") {
+			msg = xhr.responseJSON.Exception.Message
+		}
+		else if (status == 'timeout') {
+			msg = "Server took too long to respond";
+		}
+
+		 else {
+				msg = "Unable to get the info";
+		}
+		
+		alert(msg)	
+		
+
+		
+	};
+
+	$(document).ready(function() {
+		$('button').click(function() {
+		var request = {
+					url: 'http://service.faa.gov/airport/status/{CODE}?format=application/json'
+					.replace('{CODE}', $('input').val()),
+					type: 'GET',
+					success: onDataReceived, //handler
+					headers: { Accept: 'application/json'},
+					error: onError,
+					timeout: 1000
+					};
+
+			$.ajax(request);
+			//$.get(url, onDataReceived);
+
+		});
+	});
+	
+</script>
+	
+</head>
+	<body>
+		 <input placeholder="Enter Airport code"></input>
+		 <button>Get Info</button>
+
+		 <p>Airport Name:</p>
+		 <p id="name"></p>
+		 <br />
+		
+		<p>City:</p>
+		<p id="city"></p>
+		<br />
+
+		<p>Weather:</p>
+		<p id="weather"></p>
+		<br />
+
+		<p>Temperature:</p>
+		<p id="temp"></p>
+		<br />
+
+	</body>
+</html>

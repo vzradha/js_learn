@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>  
+
+	
+</head>
+<body>
+	 <h1 id="title">title</h1>
+
+	 <p class="para">Paragraph 1</p>
+	 <p class="para">Paragraph 2</p>
+
+	 <input type="text"></input>
+	<button onclick="addLi()">Add</button>
+	<button onclick="removeLi()">Remove</button>
+	 <ul>
+	 	<li>List 1</li>
+	 	<li>List 2</li>
+	 	<li>List 3</li>
+	 	<li class="active">List 4</li>
+	 	<li>List 5</li>
+	 </ul>
+	<script>
+	//DOM content changes
+	//
+		// function addLi() {
+		// 	var count = $('ul').children().length + 1;
+		// 	var txt = "List " + count;
+		// 	var newLi = $('<li></li>').text(txt);
+		// 	$('ul').append(newLi);
+		
+		// };
+
+		// function removeLi() {
+		// 	if ($('ul').children().length == 0) {
+		// 		return
+		// 	}
+		// 	$('ul li:last').remove();
+
+
+		// };
+		//Traversing DOM elements using JQuery 
+		 //$('body').children('#title').css('outline', '1px solid red')
+		 
+		 //$('h1').siblings().css('outline', '1px solid red')
+		 //$('h1').next().css('outline', '1px solid red')
+		 //$('p:last').nextAll().css('outline', '1px solid red')
+		 //$('p:last').nextUntil('ul').css('outline', '1px solid red')
+		//$('p:last').prevAll().css('outline', '1px solid red')
+		//$('li:first').parents().css('outline', '1px solid red')
+		//$('li').first().css('outline', '1px solid red')
+		//$('li').eq(2).css('outline', '1px solid red')
+		//$('li').filter('.active').css('outline', '1px solid red')
+		$('li').not('.active').css('outline', '1px solid red')
+	</script>
+
+		
+</body>
+</html>

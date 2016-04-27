@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>  
+
+	<script>
+		$(document).ready(function() {
+			$('p').click(function() {
+				$(this).css('color', 'red')
+			});
+
+			$('li').dblclick(function() {
+				$(this).css('color', 'red')
+			});
+
+			$('li').hover(function() {
+				$(this).css('color', 'blue');
+			}, function() {
+				$(this).css('color', 'black')
+			});
+
+			$(document).keypress(function() {
+				console.log('press');
+			});
+
+			$(document).keyup(function() {
+				console.log('up');
+			});
+
+
+			$('input').focus(function() {
+				$(this).css('border', "1px solid green");
+			});
+
+			$('input').blur(function() {
+				$(this).css('border', '');
+			});
+		});
+
+
+
+	</script>
+
+</head>
+<body>
+	 <h1 id="title">title</h1>
+
+	 <p class="para">Paragraph 1</p>
+	 <p class="para">Paragraph 2</p>
+
+	 <input type="text"></input>
+
+	 <ul>
+	 	<li name="asd">List 1</li>
+	 	<li>List 2</li>
+	 	<li>List 3</li>
+	 	<li>List 4</li>
+	 	<li>List 5</li>
+	 	
+
+	 </ul>
+
+		
+</body>
+</html>
